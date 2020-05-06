@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RoutingTest2Application<routing-test-2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.routingtest2.RoutingTest2Application",
+            "projectName": "routing-test-2",
+            "args": ""
+        }
+    ]
+}

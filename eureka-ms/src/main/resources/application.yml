@@ -1,0 +1,37 @@
+spring:
+    application:
+        name: EurekaServer
+
+server:
+    port: 8761
+    tomcat:
+        max-threads: 5
+
+eureka:
+    client:
+        register-with-eureka: false
+        fetch-registry: false
+        service-url:
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+    instance:
+        hostname: localhost
+        preferIpAddress: true
+
+    server: 
+        enableSelfPreservation: false
+        responseCacheUpdateIntervalMs: 6000
+        eviction-interval-timer-in-ms: 6000
+        wait-time-in-ms-when-sync-empty: 5
+        peer-node-read-timeout-ms: 500
+
+sicurezza:
+    userpwd: 'Eureka_123_user'
+    adminpwd: 'Eureka_123_admin'
+
+logging:
+    level:
+        com:
+            netflix: OFF
+            discovery: OFF
+        org.springframework.security: info

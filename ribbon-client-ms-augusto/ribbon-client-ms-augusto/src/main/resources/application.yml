@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: Augusto-Imperatore-ms
+
+server:
+    port: 8014
+
+test:
+    ribbon:
+        listOfServers: http://localhost:8101, http://localhost:8102,http://localhost:8103, http://localhost:8104

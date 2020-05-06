@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: Roma
+server:
+    port: 809${seq}
+
+eureka:
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl: 
+            defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+

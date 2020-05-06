@@ -1,0 +1,36 @@
+spring:
+    application:
+        name: Tiberio-ms
+        ecosistema: Roma
+
+server:
+    port: 801${seq}
+
+eureka:
+    instance:
+        lease-expiration-duration-in-seconds: 20
+        lease-renewal-interval-in-seconds: 15
+        #instance-id: ${server.port}-'Tiberio'-${seq}
+        #instance-id: ${server.port}-TIBERIO-${spring.application.ecosistema}
+        instance-id: ${server.port}-TIBERIO-${seq}
+
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl: 
+            defaultZone: ${EUREKA_URL:http://user:Eureka_123_user@localhost:8761/eureka/}
+
+management:
+    endpoint:
+        health:
+            show-details: WHEN_AUTHORIZED
+    endpoints:
+        web:
+            exposure:
+                include: health, info    
+
+info:
+    nome-ms: Tiberio-ms
+    ecosistema: Roma
+    autore: Stefano Rosati
+    

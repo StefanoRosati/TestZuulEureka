@@ -1,0 +1,27 @@
+spring:
+    application:
+        name: Augusto-Imperatore-ms-eureka
+
+server:
+    port: 8015
+
+eureka:
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl: 
+            defaultZone: ${EUREKA_URL:http://user:Eureka_123_user@localhost:8761/eureka/}
+
+management:
+    endpoint:
+        health:
+            show-details: WHEN_AUTHORIZED
+    endpoints:
+        web:
+            exposure:
+                include: health, info    
+
+info:
+    nome-ms: Augusto-ms
+    ecosistema: Roma
+    autore: Stefano Rosati

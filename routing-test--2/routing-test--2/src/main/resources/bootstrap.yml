@@ -1,0 +1,5 @@
+spring:
+    application:
+        name: Roma-ms
+server:
+    port: 809${seq}
