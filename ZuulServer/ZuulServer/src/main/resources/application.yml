@@ -22,8 +22,19 @@ zuul:
             path: /get/tiberio/**
             serviceId: Tiberio-ms
             sensitive-headers: Cookie,Set-Cookie ##disabilita la propagazione dei cookie ma garantisce quella dei token
+        authserver:
+            path: /**
+            serviceId: AUTH-SERVICE
+            sensitive-headers: cookie,Set-Cookie
 
+##timeout
 Tiberio-ms:
+    ribbon:
+        ReadTimeout: 60000
+        ConnectTimeout: 30000
+        MaxTotalHttpConnections: 500
+        MaxConnectionsPerHost: 100
+AUTH-SERVICE:
     ribbon:
         ReadTimeout: 60000
         ConnectTimeout: 30000
@@ -42,10 +53,28 @@ eureka:
     instance:
         lease-expiration-duration-in-seconds: 20
         lease-renewal-interval-in-seconds: 15
-        instance-id: ${server.port}-ZUUL SERVER
+        instance-id: ${server.port}-ZUUL SERVICE
 
     client:
         registerWithEureka: true
         fetchRegistry: true
         serviceUrl: 
             defaultZone: ${EUREKA_URL:http://user:Eureka_123_user@localhost:8761/eureka/}
+
+## impostazione per la sicurezza dello zuul sevice utilizzando il JWT, si noti la presenza del prefix dello zuul service
+sicurezza:
+    uri: /roma/gateway/auth
+    header: Authorization
+    prefix: Bearer
+    expirations: 86480
+    secret: 123_zuul #criptare on produzione
+
+gestUser:
+    password:
+    sevUrl: http://localhost:9019/api/utente/cerca/userid/
+    userId: Readuser
+
+info:
+    autore: "Stefano Rosati"
+    nome:
+        nome-app: "Zuul Server - Versione JWT"

@@ -1,0 +1,53 @@
+# ==============================================================
+# = Autentication Server JWT
+# ==============================================================
+
+spring:
+    application:
+        name: AUTH-SERVICE
+
+server:
+    port: 9100
+
+# ==============================================================
+# = Parametri Servizio gestUser
+# ==============================================================
+gestuser:
+  srvUrl: http://localhost:8019/api/utenti/cerca/userid/
+  userId: ReadUser
+  password: BimBumBam_2018
+
+# ==============================================================
+# = Parametri Sicurezza JWT 
+# ==============================================================
+sicurezza:
+    uri: /auth
+    refresh: /refresh
+    header: Authorization
+    prefix: Bearer 
+    expiration: 86400
+    secret: 123_Stella
+
+# ==============================================================
+# = Livello Log di Sicurezza
+# ==============================================================  
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+eureka:
+    instance:
+        lease-expiration-duration-in-seconds: 20
+        lease-renewal-interval-in-seconds: 15
+        instance-id: ${server.port}-AUTH SERVICE
+
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl: 
+            defaultZone: ${EUREKA_URL:http://user:Eureka_123_user@localhost:8761/eureka/}
+
+        
+
+  
+ 

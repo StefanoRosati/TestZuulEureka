@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<restful-web-services>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.xantrix.webapp.Application",
+            "projectName": "restful-web-services",
+            "args": ""
+        }
+    ]
+}
