@@ -56,11 +56,11 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter
 		return super.authenticationManagerBean();
 	}
 	
-	private static final String[] NOAUTH_MATCHER = {"/roma/gateway/get/tiberio/tiberio/ms/get/augusto"};
+	private static final String[] NOAUTH_MATCHER = {"/get/tiberio/tiberio/ms/get/augusto"};
 	
-	private static final String[] USER_MATCHER = { "/roma/gateway/get/tiberio/tiberio/ms/get/augusto"};
+	private static final String[] USER_MATCHER = { "/get/tiberio/tiberio/ms/get/augusto"};
 	
-	private static final String[] ADMIN_MATCHER = { "/roma/gateway/get/tiberio/tiberio/ms/get/augusto"};
+	private static final String[] ADMIN_MATCHER = { "/get/tiberio/tiberio/ms/get/augusto"};
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception 

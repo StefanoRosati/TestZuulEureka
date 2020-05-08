@@ -10,8 +10,8 @@ server:
 ## ZUUL PARAMETERS
 zuul:
     host:
-        connect-timeout-millis: 20000
-        socket-timeout-millis: 30000
+        connect-timeout-millis: 60000
+        socket-timeout-millis: 60000
     prefix: /roma/gateway
     strip-prefix: true
     ignored-services: '*'
@@ -31,13 +31,13 @@ zuul:
 Tiberio-ms:
     ribbon:
         ReadTimeout: 60000
-        ConnectTimeout: 30000
+        ConnectTimeout: 60000
         MaxTotalHttpConnections: 500
         MaxConnectionsPerHost: 100
 AUTH-SERVICE:
     ribbon:
         ReadTimeout: 60000
-        ConnectTimeout: 30000
+        ConnectTimeout: 60000
         MaxTotalHttpConnections: 500
         MaxConnectionsPerHost: 100
 
@@ -66,13 +66,14 @@ sicurezza:
     uri: /roma/gateway/auth
     header: Authorization
     prefix: Bearer
-    expirations: 86480
-    secret: 123_zuul #criptare on produzione
+    expirations: 120000
+    secret: 123_Stella #criptare on produzione
 
 gestUser:
-    password:
-    sevUrl: http://localhost:9019/api/utente/cerca/userid/
-    userId: Readuser
+    password: BimBumBam_2018
+    srvUrl: http://localhost:8019/api/utenti/cerca/userid/
+    #sevUrl: http://localhost:9100/api/utente/cerca/userid/
+    userId: ReadUser
 
 info:
     autore: "Stefano Rosati"
