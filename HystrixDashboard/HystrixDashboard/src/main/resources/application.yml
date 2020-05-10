@@ -1,10 +1,11 @@
 spring:
     application:
-        name: Tiberio-ms
-        ecosistema: Roma
+        name: HystrixDashboard
 
 server:
-    port: 801${seq}
+    port: 9000
+    tomcat:
+        max-threads: 5
 
 eureka:
     instance:
@@ -20,17 +21,7 @@ eureka:
         serviceUrl: 
             defaultZone: ${EUREKA_URL:http://user:Eureka_123_user@localhost:8761/eureka/}
 
-management:
-    endpoint:
-        health:
-            show-details: WHEN_AUTHORIZED
-    endpoints:
-        web:
-            exposure:
-                include: health, info, hystrix.stream
+turbine:
+    appConfig: Tiberio-ms
+    cluster-name-expression: new String("default")
 
-info:
-    nome-ms: Tiberio-ms
-    ecosistema: Roma
-    autore: Stefano Rosati
-    
